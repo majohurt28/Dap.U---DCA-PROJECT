@@ -1,0 +1,13 @@
+#signButton{
+    position: relative;
+    bottom: 70px;
+    left: 80%;
+    color: black;
+    font-size: 25px;
+    width: 138px;
+    height: 38px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgba(0, 0, 0, 0.166);
+    border-radius: 10px;
+    font-weight: 500;
+}

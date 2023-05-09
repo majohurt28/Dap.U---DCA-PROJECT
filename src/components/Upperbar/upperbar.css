@@ -1,0 +1,366 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.bar-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    box-shadow: 1px 1px 1px 1px rgba(32,32,32,0.3);
+    height: 100px;
+}
+
+.dapIcon{
+    position: relative;
+    left: -80%;
+    top: 20px;
+    width: 65px;
+    height: 65px;
+    transition: 0.2s;
+}
+
+.dap{
+    position: relative;
+    display: block;
+    width: 100px;
+    left: -90%;
+    top: -324px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+}
+
+.search{
+    position: relative;
+    top: -5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 7px;
+    text-align: center;
+    left:  -20%;
+    border-color: transparent;
+    height: 40px;
+    width: 420px;
+    border-radius: 10px;
+    transition: 0.2s;
+    z-index: 50;
+}
+
+.searchIcon{
+    position: absolute;
+    left: 34%;
+    height: 25px;
+    width: 25px;
+    top: 50px;
+    z-index: 100;
+}
+
+.blackCont{
+    position: absolute;
+    top: 176px;
+    left: 300px;
+    background-color: rgb(0, 0, 0);
+    width: 350px;
+    height: 52px;
+    z-index: 5;
+}
+
+.messagecont{
+    position: absolute;
+    top: 195px;
+    left: 311px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.searchMessage{
+    position: absolute;
+    top: 675px;
+    left: 300px;
+    background-color: #E8E8E8;;
+    width: 350px;
+    height: 45px;
+    z-index: 5;
+
+}
+
+.profile{
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 3%;
+    width: 65px;
+    height: 65px;
+    border-radius: 40px;
+    transition: 0.2s;
+}
+
+.name{
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    right: 9%;
+    top: 60px;
+    transition: 0.2s;
+}
+
+.bar-icons{
+    width: 0px;
+    height: 0px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: first baseline;
+    background-color: black;
+    
+}
+
+.more{
+    width: 0px;
+    height: 0px;
+}
+
+
+.prof{
+    width: 0px;
+    height: 0px;
+}
+
+.search2{
+    width: 0px;
+    height: 0px; 
+}
+
+.house{
+    width: 0px;
+    height: 0px;  
+}
+
+
+/*responsive**/
+@media (max-width:600px){
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    box-shadow: 1px 1px 1px 1px rgba(32,32,32,0.3);
+    height: 100px;
+}
+}
+@media (max-width:600px){
+    .profile{
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 3%;
+        width: 50px;
+        height: 50px;
+        border-radius: 40px;
+    }
+}
+
+@media (max-width:600px){
+    .dapIcon{
+        display: block;
+        position: relative;
+        left: 3%;
+        top: -66px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+
+@media (max-width:600px){
+    .search{
+        background-color: transparent;
+        height: 0px;
+        width: 0px;
+    }
+}
+
+@media (max-width:600px){
+    .name{
+        position: absolute;
+        color: white;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        right: 15%;
+        top: 64px;
+    }
+}
+
+@media (max-width:600px){
+    .dap{
+        position: absolute;
+        left: 10%;
+        top: 4;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+    }
+}
+
+@media (max-width:600px){
+    .searchIcon{
+        
+        
+        height: 0px;
+        width: 0px;
+        
+    }
+}
+
+@media (max-width:600px){
+    .bar-icons{
+        position: absolute;
+        margin-left: 2px;
+        
+        width: 100%;
+        height: 70px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: black;
+        top: 600px;
+    } 
+}
+
+@media (max-width:600px){
+    .more{
+        width: 45px;
+        height: 45px;
+        margin: 10px;
+    }
+}
+
+@media (max-width:600px){
+    .more:hover{
+        width: 49px;
+        height: 49px;
+        margin: 10px;
+    }
+}
+
+@media (max-width:600px){
+    .message{
+        width: 45px;
+        height: 40px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .message:hover{
+        width: 49px;
+        height: 44px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .prof{
+        width: 45px;
+        height: 45px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .prof:hover{
+        width: 49px;
+        height: 49px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .search2{
+        width: 45px;
+        height: 45px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .search2:hover{
+        width: 49px;
+        height: 49px;
+        margin: 13px;
+    } 
+}
+@media (max-width:600px){
+    .house{
+        width: 45px;
+        height: 45px;
+        margin: 13px;
+        margin-bottom: 30px;
+    } 
+}
+@media (max-width:600px){
+    .house:hover{
+        width: 49px;
+        height: 49px;
+        margin: 13px;
+        margin-bottom: 30px;
+    } 
+}
+
+@media (max-width:600px){
+    .blackCont{
+        position: absolute;
+        top: 178px;
+        left: 300px;
+       
+        width: 0px;
+        height: 0px;
+        z-index: 5;
+    } 
+}
+
+@media (max-width:600px){
+    .messagecont{
+        position: absolute;
+        top: 195px;
+        left: 311px;
+        color: transparent;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0px;
+        z-index: 10;
+    }
+}
+
+@media (max-width:600px){
+    .searchMessage{
+        position: absolute;
+        top: 675px;
+        left: 300px;
+        background-color: transparent;
+        width: 0px;
+        height: 0px;
+        z-index: 5;
+    }
+}
+@media (max-width:600px){
+    .icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-self: first baseline;
+        background-color: black;
+        height: 90px;
+        width: 300px;
+        padding-left: 40px;
+        padding-right: 70px;
+       
+        
+    }
+    
+}
+

@@ -47,7 +47,8 @@ export default class Sidebutton extends HTMLElement {
        
 
         const button1 = this.ownerDocument.createElement('button');
-        button1.setAttribute("id","button1")
+        /* button1.setAttribute("id","button1") */
+        button1.className= "button"
         button1.innerText = "Music Sheets";
         button1.addEventListener('click',() =>{
             
@@ -55,12 +56,14 @@ export default class Sidebutton extends HTMLElement {
         buttonSection.appendChild(button1);
 
         const button2 = this.ownerDocument.createElement('button');
+        button2.className= "button"
         button2.innerText = "Jams";
         button2.addEventListener('click',() =>{
            
         })
 
         const button3 = this.ownerDocument.createElement('button');
+        button3.className= "button"
         button3.innerText = "Discover";
         button3.addEventListener('click',() =>{
            

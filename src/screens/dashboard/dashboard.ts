@@ -1,11 +1,11 @@
-import dashboardStyle from './dashboard.css';
+/* import dashboardStyle from './dashboard.css';
 
 import Signbutton from "../../components/Signbutton/signbutton";
 import { getmessage, logIn } from "../../store/actions";
 import { getvideo } from "../../store/actions";
 
-import LogIn from "../../components/log in/login";
-import Messagecard, { messageAtt } from "../../components/message/message"
+/* import LogIn from "../../components/log in/login"; */
+/* import Messagecard, { messageAtt } from "../../components/message/message"
 import Myvid, { videoAtt } from "../../components/vidss/vid"
 import { addObserver, appState, dispatch } from "../../store/index";
 import  sidebar  from '../../components/sidebar/sidebar'; 
@@ -78,11 +78,11 @@ class dashboardContainer extends HTMLElement {
     })
 
     this.shadowRoot?.appendChild(vidCards);
-
+ */
 
     //*Message
 
-    const messageSection = this.ownerDocument.createElement("section-message");
+   /*  const messageSection = this.ownerDocument.createElement("section-message");
     messageSection.className = 'messageSection'
 
     appState.message.forEach((data) => {
@@ -104,23 +104,22 @@ class dashboardContainer extends HTMLElement {
     this.shadowRoot?.appendChild(messageCards);
 
     const signB = button.shadowRoot?.getElementById('signButton');
-    console.log(signB)
+    console.log(signB) */
 
-    const login = this.ownerDocument.createElement('log-in') as LogIn;
+    /* const login = this.ownerDocument.createElement('log-in') as LogIn; */
     
-    this.shadowRoot?.appendChild(login);
+    /* this.shadowRoot?.appendChild(login);
     
-    const loginSection = login.shadowRoot?.getElementById('mainLogin');
+    const loginSection = login.shadowRoot?.getElementById('mainLogin'); */
     
-    console.log("pipipi",loginSection)
+   /*  console.log("pipipi",loginSection)
     signB?.addEventListener('click', () => {
     console.log (loginSection?.classList) 
       loginSection?.classList.remove("noShow")
-      console.log (loginSection?.classList)
+      console.log (loginSection?.classList) */
       
-    })
+ /*    }
   }
-}
 
 
 
@@ -129,6 +128,7 @@ class dashboardContainer extends HTMLElement {
 
 
 
-customElements.define("my-dashboard", dashboardContainer);
 
+customElements.define("my-dashboard", dashboardContainer); */
+ 
 

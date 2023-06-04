@@ -1,27 +1,34 @@
-import "./components/export"
-import "./screens/dashboard/dashboard"
-import "./screens/Musicsheet/musicsheet"
+import "./screens/export";
+import { addObserver, appState } from "./store";
+import { Screens } from "./types/navigatio";
+
 
 class AppContainer extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: "open"})
+        addObserver(this);
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         this.render()
     }
 
     render() {
-        
-       /*  const dashboard = this.ownerDocument.createElement('my-dashboard');
-         this.shadowRoot?.appendChild(dashboard); */
+        if (this.shadowRoot) this.shadowRoot.innerHTML = "";
 
-       const musicsheets = this.ownerDocument.createElement('app-musicsheet');
-        this.shadowRoot?.appendChild(musicsheets); 
+    switch (appState.screen) {
 
-        
+      case Screens.LOGIN:
+        const login = this.ownerDocument.createElement("app-login");
+        this.shadowRoot?.appendChild(login);
+        break;
+
+      default:
+        break;
+         
     }
+}
 }
 
 customElements.define('app-container', AppContainer)

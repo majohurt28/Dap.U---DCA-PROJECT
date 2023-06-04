@@ -1,9 +1,30 @@
-import { Actions, AppState, AuthActions, messageAct , videoAct, sheetAct  } from "../types/store";
+export const reducer = (action: any, prevState: any) => {
+    switch (action.type) {
+      case "NAVIGATE":
+        prevState.screen = action.payload;
+        break;
+    }
+  
+    return prevState;
+  };
+  
 
-export const reducer = (currentAction: Actions, currentState: AppState): AppState => {
+
+
+
+/* import { Actions, AppState, AuthActions, messageAct , videoAct, sheetAct  } from "../types/store";
+
+export const reducer = (action: any, prevState: any, currentAction: Actions, currentState: AppState): AppState => {
     const { action, payload } = currentAction; 
 
     switch (action) {
+        case "NAVIGATE":
+      prevState.screen = action.payload;
+      break;
+    }
+
+    return prevState;
+
         case AuthActions.LOGIN:
             return {
                 ...currentState,
@@ -65,4 +86,4 @@ export const reducer = (currentAction: Actions, currentState: AppState): AppStat
         default:
             return currentState;
     }
-}
+} */

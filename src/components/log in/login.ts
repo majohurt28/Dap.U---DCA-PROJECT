@@ -1,4 +1,4 @@
-import loginstyles from "./login.css"
+/* import loginstyles from "./login.css"
 
 class LogIn extends HTMLElement {
 
@@ -44,4 +44,4 @@ class LogIn extends HTMLElement {
 }
 
 customElements.define('log-in', LogIn)
-export default LogIn
+export default LogIn */

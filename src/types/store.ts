@@ -1,10 +1,10 @@
-import { Shapevideo} from "./Shapevideo"
+/* import { Shapevideo} from "./Shapevideo"
 import { Shapemessage} from "./Shapemessage"
-import { Shapemusicsheet} from "./Shapemusicsheet"
+import { Shapemusicsheet} from "./Shapemusicsheet" */
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
-export type AppState = {
+/* export type AppState = {
     user: {
         userName: string,
         email: string,
@@ -78,6 +78,6 @@ export interface AddmessageAct
 export interface GetmessageAct {
     action: messageAct.GETmessage,
     payload: Shapemessage[]
-}
+} */
 
-export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ;
+/* export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ; */

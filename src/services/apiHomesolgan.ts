@@ -1,4 +1,4 @@
-import { Shapeslogan } from "../types/Shapeslogan";
+/* import { Shapeslogan } from "../types/Shapepost";
 import { slogandata } from "../mocks/homeslogan"; 
 
 class Shapehome{
@@ -11,4 +11,4 @@ class Shapehome{
     }
   }
   
-  export default new Shapehome();
+  export default new Shapehome(); */

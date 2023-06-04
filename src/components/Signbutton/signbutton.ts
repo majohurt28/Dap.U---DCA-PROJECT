@@ -16,7 +16,7 @@ class Signbutton extends HTMLElement {
         this.button = this.ownerDocument.createElement('button');
         this.button.className = "signButton"
         this.button.id = "signButton"
-        this.button.textContent = 'Log in';
+        this.button.textContent = 'Sign up';
         
     }
 

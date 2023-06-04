@@ -1,4 +1,4 @@
-import homestyles from './home.css';
+/* import homestyles from './home.css';
 
 import Messagecard, { messageAtt} from "../../components/message/message"
 import Myvid,{ videoAtt} from "../../components/vidss/vid"
@@ -48,4 +48,4 @@ class homeContainer extends HTMLElement {
 
 }}
 
-customElements.define("my-home", homeContainer);
+customElements.define("my-home", homeContainer); */

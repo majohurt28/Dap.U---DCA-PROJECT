@@ -130,5 +130,41 @@ class dashboardContainer extends HTMLElement {
 
 
 customElements.define("my-dashboard", dashboardContainer); */
+
+
+ import  Upperbar  from '../../components/Upperbar/upperbar';
+ import  sidebar  from '../../components/sidebar/sidebar'; 
+ import { addObserver, appState, dispatch } from "../../store/index";
+ import { navigate } from "../../store/actions";
+ import { Screens } from "../../types/navigatio";
+ import dashboardStyle from './dashboard.css';
+
  
 
+
+export default class home extends HTMLElement {
+  constructor(){
+      super();
+      this.attachShadow({mode: "open"})
+  }
+
+  connectedCallback() {
+      this.render()
+  }
+
+  render() {
+      if(this.shadowRoot)this.shadowRoot.innerHTML='';
+
+      const container = this.ownerDocument.createElement("section") as Upperbar
+      container.className="Uppercontainer"
+      this.shadowRoot?.appendChild(container);
+
+     
+
+  }}
+
+customElements.define('home-cont', home)
+
+
+
+  

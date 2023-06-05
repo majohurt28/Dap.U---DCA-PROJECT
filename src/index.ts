@@ -37,8 +37,22 @@ class AppContainer extends HTMLElement {
 
         case Screens.SIGNUP:
             const signup = this.ownerDocument.createElement("app-signup");
+            const btn = this.ownerDocument.createElement("button")
+            btn.className = "ExitBotton"
+            btn.innerText = "DASHBOARD"
+            btn.addEventListener("click",() =>{
+              dispatch(navigate(Screens.DASHBOARD));
+            } );
+            this.shadowRoot?.appendChild(btn);
             this.shadowRoot?.appendChild(signup);
             break; 
+
+
+         case Screens.DASHBOARD:
+        const dashboard = this.ownerDocument.createElement("home-cont");   
+        
+        this.shadowRoot?.appendChild(dashboard);
+      break; 
 
       default:
         break;

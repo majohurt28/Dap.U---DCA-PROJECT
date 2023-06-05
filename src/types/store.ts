@@ -4,17 +4,28 @@ import { Shapemusicsheet} from "./Shapemusicsheet" */
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
-/* export type AppState = {
-    user: {
-        userName: string,
-        email: string,
-    },
-    video: Shapevideo[]
-    message: Shapemessage[]
-    sheets: Shapemusicsheet[]
+
+export enum Screens {
+    LOGIN = "LOGIN",
+    DASHBOARD = "DASHBOARD",
+    SIGNUP = "SIGNUP",
 }
 
-export enum AuthActions {
+export type AppState = {
+    screen: Screens;  
+}
+
+export enum NavigationActions {
+    "NAVIGATE" = "NAVIGATE",
+}
+
+export interface NavigateAction {
+    action: NavigationActions .NAVIGATE,
+    payload: Screens;
+}
+
+
+/* export enum AuthActions {
     "LOGIN" = "LOGIN",
     "LOGOUT" = "LOGOUT",
 }
@@ -78,6 +89,7 @@ export interface AddmessageAct
 export interface GetmessageAct {
     action: messageAct.GETmessage,
     payload: Shapemessage[]
-} */
+} */ 
 
 /* export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ; */
+export type Actions = NavigateAction;

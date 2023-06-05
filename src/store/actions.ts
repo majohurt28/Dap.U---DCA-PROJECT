@@ -52,11 +52,11 @@ export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
 }
  */
 
-import { Screens } from "../types/navigatio";
+import { NavigateAction, NavigationActions, Screens  } from "../types/store";
 
-export const navigate = (screen: Screens) => {
+export const navigate = (screen: Screens): NavigateAction => {
   return {
-    type: "NAVIGATE",
+    action: NavigationActions.NAVIGATE,
     payload: screen,
   };
 };

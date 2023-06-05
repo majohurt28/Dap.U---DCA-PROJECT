@@ -155,9 +155,29 @@ export default class home extends HTMLElement {
   render() {
       if(this.shadowRoot)this.shadowRoot.innerHTML='';
 
-      const container = this.ownerDocument.createElement("section") as Upperbar
-      container.className="Uppercontainer"
-      this.shadowRoot?.appendChild(container);
+     
+
+      const h3 = this.ownerDocument.createElement("h3");
+      h3.className="Uppercontainer"
+      h3.innerText= "helloooo"
+
+      this.shadowRoot?.appendChild(h3);
+
+      const Upper = this.ownerDocument.createElement('my-upperbar') as Upperbar;
+      Upper.className = 'upper-section'
+      this.shadowRoot?.appendChild(Upper);
+
+      const sinbtn = this.ownerDocument.createElement("button")
+        sinbtn .className = "LoginBotton"
+        sinbtn .innerText = "Login"
+        sinbtn .addEventListener("click",() =>{
+          dispatch(navigate(Screens.LOGIN));
+        } );
+
+        this.shadowRoot?.appendChild(sinbtn);
+    
+
+      
 
      
 

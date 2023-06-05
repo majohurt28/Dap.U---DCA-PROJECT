@@ -1,5 +1,5 @@
 import loginStyle from "./login.css";
-import { dispatch } from "../../store";
+import { addObserver, appState,dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigatio";
 import Firebase from "../../utils/Firebase";
@@ -15,15 +15,11 @@ export default class Login extends HTMLElement {
   
     connectedCallback() {
       this.render();
+      console.log('AppState',appState.user);
     }
     async handleLoginButton() {
-        const resp = await Firebase.loginUser(credentials);
-        if (resp) {
-          dispatch(navigate(Screens.DASHBOARD));
-        } else {
-          alert("Datos incorrectos");
-        }
-        console.log(resp);
+      Firebase.loginUser(credentials);
+      console.log(appState.user)
       }
     
       render() {
@@ -34,7 +30,6 @@ export default class Login extends HTMLElement {
             const css = this.ownerDocument.createElement("style");
             css.innerHTML = loginStyle;
             this.shadowRoot?.appendChild(css);
-    
         }
 
         const Maincontainer = this.ownerDocument.createElement('section');
@@ -44,7 +39,7 @@ export default class Login extends HTMLElement {
         logContainer.className = 'loginContainer';
 
         const title = this.ownerDocument.createElement("h1");
-        title.innerText = "Welcome! please sign in";
+        title.innerText = "Log in to Dap.u";
         logContainer?.appendChild(title);
     
         const email = this.ownerDocument.createElement("input");
@@ -69,8 +64,28 @@ export default class Login extends HTMLElement {
         loginBtn.innerText = "Login";
         loginBtn.addEventListener("click", this.handleLoginButton);
         logContainer?.appendChild(loginBtn);
+
+        const accountD = this.ownerDocument.createElement("section")
+        accountD .className = "DescriptionDiv"
+        logContainer.appendChild(accountD );
+    
+        const logAccount = this.ownerDocument.createElement('label');
+        logAccount.textContent = "Do you not have an account? "
+        accountD.appendChild(logAccount  );
+    
+        const sinbtn = this.ownerDocument.createElement("button")
+        sinbtn .className = "SignBotton"
+        sinbtn .innerText = "Sign Up"
+        sinbtn .addEventListener("click",() =>{
+          dispatch(navigate(Screens.SIGNUP));
+        } );
+    
+        accountD.appendChild(sinbtn);
+        logContainer.appendChild(accountD );
+
         Maincontainer?.appendChild(logContainer);
         this.shadowRoot?.appendChild(Maincontainer);
+
       }
     }
     

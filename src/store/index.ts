@@ -1,4 +1,6 @@
 import { Screens } from "../types/navigatio";
+import Storage, { PersistanceKeys } from "../utils/storage";
+import { Actions, AppState } from "../types/store";
 import { Observer } from "../types/store";
 import { reducer } from "./reducer";
 import { onAuthStateChanged } from "firebase/auth";
@@ -16,9 +18,13 @@ onAuthStateChanged(auth, (user) => {
 
 const emptyState = {
   screen: Screens.SIGNUP,
+  user: ""
 };
 
-export let appState = emptyState;
+export let appState = Storage.get<AppState>({
+  key: PersistanceKeys.STORE,
+  defaultValue: emptyState,
+});
 
 let observers: Observer[] = [];
 

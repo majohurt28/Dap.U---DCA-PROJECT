@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import {
-    createUserWithEmailAndPassword,
-    getAuth,
-    signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserSessionPersistence 
   } from "firebase/auth";
   import { Shapepost  } from "../types/Shapeposts";
 
@@ -51,22 +53,17 @@ const registerUser = async ({
   }: {
     email: string;
     password: string;
-  }): Promise<boolean> => {
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(userCredential.user);
-      alert("welcome " + userCredential.user.email);
-      return true;
-    } catch (error: any) {
+  }) => {
+    setPersistence(auth, browserSessionPersistence)
+    .then(() => {
+      return signInWithEmailAndPassword(auth, email, password);
+    })
+    .catch((error) => {
+      
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      return false;
-    }
+    });
   };
 
   const savepostinDB = async (shapepost: Shapepost) => {

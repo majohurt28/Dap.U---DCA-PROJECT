@@ -5,15 +5,17 @@ import { Shapemusicsheet} from "./Shapemusicsheet" */
 export type Observer = ({ render: () => void } & HTMLElement);
 
 
+export type AppState = {
+    screen: Screens;
+    user: string;  
+}
+
 export enum Screens {
     LOGIN = "LOGIN",
     DASHBOARD = "DASHBOARD",
     SIGNUP = "SIGNUP",
 }
 
-export type AppState = {
-    screen: Screens;  
-}
 
 export enum NavigationActions {
     "NAVIGATE" = "NAVIGATE",

@@ -1,6 +1,6 @@
 import { Actions, AppState, NavigationActions } from "../types/store";
 
-export const reducer = (actions: Actions, prevState: any, appState: AppState): 
+export const reducer = (actions: Actions, appState: AppState): 
     AppState => {
         const { action, payload } = actions; 
 

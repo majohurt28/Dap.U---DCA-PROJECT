@@ -1,6 +1,9 @@
 import "./screens/export";
-import { addObserver, appState } from "./store";
-import { Screens } from "./types/navigatio";
+import {addObserver, appState } from "./store";
+import { Screens} from "./types/navigatio";
+import { dispatch } from "../src/store/index";
+import { navigate } from "./store/actions";
+
 
 
 class AppContainer extends HTMLElement {
@@ -21,7 +24,15 @@ class AppContainer extends HTMLElement {
 
       case Screens.LOGIN:
         const login = this.ownerDocument.createElement("app-login");
-        this.shadowRoot?.appendChild(login);
+        
+        const Exitbtn = this.ownerDocument.createElement("button")
+    Exitbtn.className = "ExitBotton"
+    Exitbtn.innerText = "SIGNUP"
+    Exitbtn.addEventListener("click",() =>{
+      dispatch(navigate(Screens.SIGNUP));
+    } );
+    this.shadowRoot?.appendChild(Exitbtn);
+    this.shadowRoot?.appendChild(login);
         break;
 
         case Screens.SIGNUP:

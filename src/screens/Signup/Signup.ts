@@ -8,7 +8,7 @@ import Firebase from "../../utils/Firebase";
 
 const credentials = { email: "", password: "" };
 
-class Signup extends HTMLElement {
+export default class Signup extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -19,13 +19,14 @@ class Signup extends HTMLElement {
     this.render();
   }
 
-  async handleLoginButton() {
+  async handlesignButton() {
     const resp = await Firebase.registerUser(credentials);
     if (resp) {
-      dispatch(navigate(Screens.DASHBOARD));
+      dispatch(navigate(Screens.LOGIN));
+      sessionStorage.clear();
     } else {
       alert("Datos incorrectos");
-    }
+    };
     console.log(resp);
   }
 
@@ -38,71 +39,71 @@ class Signup extends HTMLElement {
         css.innerHTML = signStyle ;
         this.shadowRoot?.appendChild(css);
     }
-    const container = this.ownerDocument.createElement("section")
-    container.className = 'Maincontainer'
+    const Maincontainer = this.ownerDocument.createElement("section")
+    Maincontainer.className = 'Maincontainer'
 
     const SignContainer = this.ownerDocument.createElement("section")
     SignContainer.className = 'SignContainer'
 
-    const icon = this.ownerDocument.createElement("img")
-    icon.src = "/img/arrow_left.png"
-    icon.className = "iconArrow"
-    icon.addEventListener("click", this.backWindow);
-    SignContainer.appendChild(icon)
+    const Exitbtn = this.ownerDocument.createElement("button")
+    Exitbtn.className = "ExitBotton"
+    Exitbtn.innerText = "X"
+    Exitbtn.addEventListener("click",() =>{
+      dispatch(navigate(Screens.DASHBOARD));
+    } );
+    SignContainer.appendChild(Exitbtn);
 
-    const loginDiv = this.ownerDocument.createElement("login-div") as LoginDiv;
-    SignContainer.appendChild(loginDiv)
-    this.shadowRoot?.appendChild(SignContainer);
+    const Newaccount = this.ownerDocument.createElement("h1");
+    Newaccount.innerText = "Create an account"
+    SignContainer.appendChild(Newaccount);
 
     const email = this.ownerDocument.createElement("input");
     email.placeholder = "Email";
-    email.className = "BigInput"
+    email.className = "SignInput"
     email.type = "email";
     email.addEventListener(
-      "change",
-      (e: any) => (credentials.email = e.target.value)
+      "change", (e: any) => (credentials.email = e.target.value)
     );
-    InputSection.appendChild(email);
+    SignContainer.appendChild(email);
 
     const password = this.ownerDocument.createElement("input");
-    password.placeholder = "Password";
-    password.className = "BigInput"
+    password.placeholder = "Password...";
+    password.className = "SignInput"
     password.type = "password";
     password.addEventListener(
-      "change",
-      (e: any) => (credentials.password = e.target.value)
+      "change", (e: any) => (credentials.password = e.target.value)
     );
-    InputSection.appendChild(password);
+    SignContainer.appendChild(password);
 
-    SignContainer.appendChild(InputSection)
-
-    const checkBoxLogin = this.ownerDocument.createElement("checkbox-login") as CheckBoxLogin;
-
-    SignContainer.appendChild( checkBoxLogin)
+    Maincontainer.appendChild(SignContainer)
+    this.shadowRoot?.appendChild(Maincontainer);
     this.shadowRoot?.appendChild(SignContainer);
 
-    const buttonSign = this.ownerDocument.createElement("button-sign") as ButtonSign;
-    buttonSign.addEventListener("click", this.handleSignUpButton);
-    SignContainer.appendChild(buttonSign)
+    const signButton = this.ownerDocument.createElement("sign-button") as Signbutton;
+    signButton.addEventListener("click", this.handlesignButton);
+    SignContainer.appendChild(signButton);
     this.shadowRoot?.appendChild(SignContainer);
 
-    const DescriptionDiv = this.ownerDocument.createElement("section")
-    DescriptionDiv.className = "DescriptionDiv"
+    const accountD = this.ownerDocument.createElement("section")
+    accountD .className = "DescriptionDiv"
+    SignContainer.appendChild(accountD );
 
-    const descLogin = this.ownerDocument.createElement("description-login") as DescriptionCardLogin;
-    DescriptionDiv.appendChild(descLogin)
+    const logAccount = this.ownerDocument.createElement('label');
+    logAccount.textContent = "Already have an account?"
+    accountD.appendChild(logAccount  );
 
-    const buttonLog = this.ownerDocument.createElement("button");
-    buttonLog.innerText = "Login"
-    buttonLog.className = "Link"
-    buttonLog.addEventListener("click", this.changeWindow);
-    DescriptionDiv.appendChild(buttonLog)
+    const loginbtn = this.ownerDocument.createElement("button")
+    loginbtn .className = "LoginBotton"
+    loginbtn .innerText = "Login"
+    loginbtn .addEventListener("click",() =>{
+      dispatch(navigate(Screens.LOGIN));
+    } );
 
-    SignContainer.appendChild(DescriptionDiv)
+    accountD.appendChild(loginbtn);
+    SignContainer.appendChild(accountD );
     this.shadowRoot?.appendChild(SignContainer);
-
-    container.appendChild(SignContainer);
-    this.shadowRoot?.appendChild(container);
+    Maincontainer .appendChild(SignContainer);
+    this.shadowRoot?.appendChild(Maincontainer );
 
     
   

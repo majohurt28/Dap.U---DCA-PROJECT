@@ -21,7 +21,7 @@ export default class Login extends HTMLElement {
         if (resp) {
           dispatch(navigate(Screens.DASHBOARD));
         } else {
-          alert("te equivocaste");
+          alert("Datos incorrectos");
         }
         console.log(resp);
       }

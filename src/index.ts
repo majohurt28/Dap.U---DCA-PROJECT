@@ -47,10 +47,8 @@ class AppContainer extends HTMLElement {
             this.shadowRoot?.appendChild(signup);
             break; 
 
-
          case Screens.DASHBOARD:
         const dashboard = this.ownerDocument.createElement("home-cont");   
-        
         this.shadowRoot?.appendChild(dashboard);
       break; 
 

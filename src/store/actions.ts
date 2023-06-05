@@ -20,7 +20,7 @@ export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
     }
 } */
 
-/* export const getmessage = async (): Promise<GetmessageAct > => {
+/* export const readmessage = async (): Promise<GetmessageAct > => {
     const message = await Shapemessages.get();
     return {
         action: messageAct.GETmessage,
@@ -28,7 +28,7 @@ export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
     }
 } */
 
-/* export const getvideo = async (): Promise<GetvideoAct> => {
+/* export const readvideo = async (): Promise<GetvideoAct> => {
     const video = await Shapevideos.get();
     return {
         action: videoAct.GETvideo,
@@ -68,3 +68,10 @@ export const setUserCredentials = (user: string) => {
       payload: user,
     };
   };
+
+  export const readmessage = async (): Promise<GetmessageAct > => {
+    const message = await Shapemessages.get();
+    return {
+        action: messageAct.GETmessage,
+        payload: message
+    }

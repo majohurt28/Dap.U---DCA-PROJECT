@@ -16,7 +16,7 @@ class Upperbar extends HTMLElement {
         if (this.shadowRoot){
 
         this.shadowRoot!.innerHTML = `
-                <div class="bar-section>
+                <div class="bar-section">
                 <input class="bar">
                 <img class="dapIcon" src="/img/logo blanc.png">
                 <img class="searchIcon" src="/img/buscando.png" >

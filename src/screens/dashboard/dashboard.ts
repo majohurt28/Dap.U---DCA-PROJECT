@@ -146,13 +146,30 @@ export default class home extends HTMLElement {
   constructor(){
       super();
       this.attachShadow({mode: "open"})
+      addObserver(this);
   }
 
-  connectedCallback() {
-      this.render()
+  async connectedCallback() {
+    if (appState.message.length === 0) {
+      const actionMs = await readmessage();
+      dispatch(actionMs);
+    } if (appState.video.length === 0) {
+      const actionVd = await readvideo();
+      dispatch(actionVd);
+    } else {
+      this.render();
+    }
   }
 
-  render() {
+
+  render() {if (this.shadowRoot) {
+    this.shadowRoot.innerHTML = ``;
+  
+    const css = this.ownerDocument.createElement("style");
+    css.innerHTML = dashboardStyle;
+    this.shadowRoot?.appendChild(css);
+}
+
       if(this.shadowRoot)this.shadowRoot.innerHTML='';
 
      

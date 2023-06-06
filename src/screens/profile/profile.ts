@@ -97,11 +97,13 @@ export default class profile extends HTMLElement {
     Profile.appendChild(infoProfile );
 
     const logAccount = this.ownerDocument.createElement('label');
-    logAccount.textContent = "Already have an account?"
-    infoProfile.appendChild(logAccount  );
+    logAccount .className = "User"
+    logAccount.textContent = "Username"
+    infoProfile.appendChild(logAccount);
 
-    const uptbtn = this.ownerDocument.createElement("button")
+    const uptbtn = this.ownerDocument.createElement("h1")
     uptbtn .className = "upBotton"
+    uptbtn.textContent = "✚"
     uptbtn .addEventListener("click",() =>{
       dispatch(navigate(Screens.EDITPROFILE));
     } );

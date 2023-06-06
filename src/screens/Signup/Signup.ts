@@ -44,7 +44,7 @@ export default class Signup extends HTMLElement {
     const SignContainer = this.ownerDocument.createElement("section")
     SignContainer.className = 'SignContainer'
 
-    const Exitbtn = this.ownerDocument.createElement("button")
+    const Exitbtn = this.ownerDocument.createElement("h1")
     Exitbtn.className = "ExitBotton"
     Exitbtn.innerText = "X"
     Exitbtn.addEventListener("click",() =>{
@@ -53,8 +53,15 @@ export default class Signup extends HTMLElement {
     SignContainer.appendChild(Exitbtn);
 
     const Newaccount = this.ownerDocument.createElement("h1");
+    Newaccount .className = "Newtxt"
     Newaccount.innerText = "Create an account"
     SignContainer.appendChild(Newaccount);
+
+    const username = this.ownerDocument.createElement("input");
+    username.placeholder = "Username";
+    username.className = "SignInput"
+    username.type = "username";
+    SignContainer.appendChild(username);
 
     const email = this.ownerDocument.createElement("input");
     email.placeholder = "Email";
@@ -78,8 +85,10 @@ export default class Signup extends HTMLElement {
     this.shadowRoot?.appendChild(Maincontainer);
     this.shadowRoot?.appendChild(SignContainer);
 
-    const signButton = this.ownerDocument.createElement("sign-button") as Signbutton;
+    const signButton = this.ownerDocument.createElement("button") 
     signButton.addEventListener("click", this.handlesignButton);
+    signButton .className = "signinBotton"
+    signButton .innerText = "sign in"
     SignContainer.appendChild(signButton);
     this.shadowRoot?.appendChild(SignContainer);
 
@@ -88,6 +97,7 @@ export default class Signup extends HTMLElement {
     SignContainer.appendChild(accountD );
 
     const logAccount = this.ownerDocument.createElement('label');
+    logAccount .className = "logtxt"
     logAccount.textContent = "Already have an account?"
     accountD.appendChild(logAccount  );
 

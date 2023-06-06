@@ -35,7 +35,7 @@ export default class editprofile extends HTMLElement {
         const editPContainer = this.ownerDocument.createElement("section")
         editPContainer.className = 'editPContainer'
     
-        const Exitbtn = this.ownerDocument.createElement("button")
+        const Exitbtn = this.ownerDocument.createElement("h1")
         Exitbtn.className = "ExitBotton"
         Exitbtn.innerText = "X"
         Exitbtn.addEventListener("click",() =>{
@@ -44,9 +44,9 @@ export default class editprofile extends HTMLElement {
         editPContainer.appendChild(Exitbtn);
 
      
-        editPContainer.appendChild(Exitbtn);
     
         const dapu = this.ownerDocument.createElement("h1");
+        dapu .className = "daputxt"
         dapu.innerText = "dap.u"
         editPContainer.appendChild(dapu);
 
@@ -86,6 +86,15 @@ export default class editprofile extends HTMLElement {
           "change", (e: any) => (credentials.password = e.target.value)
         );
         editPContainer.appendChild(newpassword);
+
+        
+        const Savebtn = this.ownerDocument.createElement("h1")
+        Savebtn.className = "SaveBotton"
+        Savebtn.innerText = "Save"
+        Savebtn.addEventListener("click",() =>{
+          dispatch(navigate(Screens.PROFILE));
+        } );
+        editPContainer.appendChild(Savebtn);
     
         Maincontainer.appendChild(editPContainer)
         this.shadowRoot?.appendChild(Maincontainer);

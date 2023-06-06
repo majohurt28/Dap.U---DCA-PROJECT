@@ -61,9 +61,22 @@ class AppContainer extends HTMLElement {
 
       case Screens.EDITPROFILE:
         const editprofile = this.ownerDocument.createElement("edprof-cont");
+        const btn3 = this.ownerDocument.createElement("button")
+        btn3.className = "ExitBotton"
+        btn3.innerText = "RET"
+        btn3.addEventListener("click",() =>{
+          dispatch(navigate(Screens.PROFILE));
+        } );
+        this.shadowRoot?.appendChild(btn3);
+
         this.shadowRoot?.appendChild(editprofile);
         break; 
 
+        case Screens.PROFILE:
+          const profile = this.ownerDocument.createElement("app-profile");
+  
+          this.shadowRoot?.appendChild(profile);
+          break; 
         
       default:
         break;

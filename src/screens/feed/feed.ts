@@ -4,13 +4,13 @@ import  Upperbar  from '../../components/Upperbar/upperbar';
 import  sidebar  from '../../components/sidebar/sidebar'; 
 import Firebase from "../../utils/Firebase";
 import { addObserver, appState, dispatch } from "../../store/index";
-import profilestyle from './profilestyle.css';
+import feedstyle from './feedstyle.css';
 
 
 
-const credentials = { usermane: "", description: "", };
 
-export default class profile extends HTMLElement {
+
+export default class feed extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -27,7 +27,7 @@ export default class profile extends HTMLElement {
             this.shadowRoot.innerHTML = ``;
           
             const css = this.ownerDocument.createElement("style");
-            css.innerHTML = profilestyle ;
+            css.innerHTML = feedstyle ;
             this.shadowRoot?.appendChild(css);
         }
 
@@ -87,35 +87,15 @@ export default class profile extends HTMLElement {
       buttonSection.appendChild(button2);
       buttonSection.appendChild(button3);
       
-      //Profile
-      const Profile = this.ownerDocument.createElement("section")
-      Profile.className = 'Profile'
-      MainContainer.appendChild(Profile );
+      //Feed
+      const Feed = this.ownerDocument.createElement("section")
+      Feed.className = 'Feed'
+      MainContainer.appendChild(Feed);
 
-    const infoProfile = this.ownerDocument.createElement("section")
-    infoProfile.className = 'infoProfile'
-    Profile.appendChild(infoProfile );
+    const infoFeed = this.ownerDocument.createElement("section")
+    infoFeed.className = 'infoFeed'
+    Feed.appendChild(infoFeed);
 
-    const logAccount = this.ownerDocument.createElement('label');
-    logAccount .className = "User"
-    logAccount.textContent = "Username"
-    infoProfile.appendChild(logAccount);
-
-    const uptbtn = this.ownerDocument.createElement("h1")
-    uptbtn .className = "upBotton"
-    uptbtn.textContent = "✚"
-    uptbtn .addEventListener("click",() =>{
-      dispatch(navigate(Screens.EDITPROFILE));
-    } );
-    infoProfile.appendChild(uptbtn);
-
-    const editbtn = this.ownerDocument.createElement("button")
-    editbtn .className = "EditBotton"
-    editbtn .innerText = "Edit profile"
-    editbtn .addEventListener("click",() =>{
-      dispatch(navigate(Screens.EDITPROFILE));
-    } );
-    infoProfile.appendChild(editbtn);
 
     const content = this.ownerDocument.createElement("section")
     content.className = 'content'
@@ -126,4 +106,4 @@ export default class profile extends HTMLElement {
     }
     }
 
-    customElements.define("app-profile", profile );
+    customElements.define("app-feed", feed );

@@ -18,9 +18,9 @@ export default class Login extends HTMLElement {
       console.log('AppState',appState.user);
     }
     async handleLoginButton() {
-      Firebase.loginUser(credentials);
+      await Firebase.loginUser(credentials);
       console.log(appState.user)
-      }
+    }
     
       render() {
     

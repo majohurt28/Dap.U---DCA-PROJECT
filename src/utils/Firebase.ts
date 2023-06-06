@@ -25,9 +25,11 @@ const firebaseConfig ={
   const db = getFirestore(app);
 
 const registerUser = async ({
+    
     email,
     password,
   }: {
+   
     email: string;
     password: string;
   }): Promise<boolean> => {

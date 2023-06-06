@@ -44,6 +44,7 @@ position: absolute;
 }
 
 .title{
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     font-size: x-large;
     display: flex;
@@ -61,14 +62,16 @@ position: absolute;
     border-radius: 5px;
     width: 75px;
     height: 35px;
+    font-family: Arial, Helvetica, sans-serif;
     border-color: #8A2048;
     font-size: medium;
 }
 
 .logtxt{
-    padding-top: 100px;
+    padding-top: 30px;
     margin-left: 90px;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .SignBotton{
@@ -76,5 +79,6 @@ position: absolute;
     border-color: #8A2048;
     color: #FEC845;
     margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
     box-shadow: none;
 }

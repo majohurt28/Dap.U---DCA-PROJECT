@@ -136,9 +136,9 @@ postSec.forEach((p: Shapepost) => {
       name.innerText = p.comment;
       container.appendChild(name);
 
-      const imgSection = this.ownerDocument.createElement("section");
+      const imgSection = this.ownerDocument.createElement("img");
       imgSection.className = "sec-img"
-      imgSection.innerText = String(p.img);
+      imgSection.src = String(p.img);
       container.appendChild(imgSection);
       
       this.shadowRoot?.appendChild(container);

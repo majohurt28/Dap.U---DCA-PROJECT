@@ -66,7 +66,10 @@ export default class Login extends HTMLElement {
         const loginBtn = this.ownerDocument.createElement("button");
         loginBtn .className = "LoginBotton"
         loginBtn.innerText = "Login";
-        loginBtn.addEventListener("click", this.handleLoginButton);
+        /* loginBtn.addEventListener("click", this.handleLoginButton); */
+        loginBtn.addEventListener("click",() =>{
+          dispatch(navigate(Screens.FEED));
+        } );
         logContainer?.appendChild(loginBtn);
 
         const accountD = this.ownerDocument.createElement("section")

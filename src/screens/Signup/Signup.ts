@@ -82,6 +82,9 @@ export default class Signup extends HTMLElement {
 
     const signButton = this.ownerDocument.createElement("button") 
     signButton.addEventListener("click", this.handlesignButton);
+    signButton.addEventListener("click",() =>{
+      dispatch(navigate(Screens.LOGIN));
+    } );
     signButton .className = "signinBotton"
     signButton .innerText = "sign in"
     SignContainer.appendChild(signButton);

@@ -25,15 +25,20 @@ class AppContainer extends HTMLElement {
       case Screens.LOGIN:
         const login = this.ownerDocument.createElement("app-login");
         
-        const Exitbtn = this.ownerDocument.createElement("button")
-    Exitbtn.className = "ExitBotton"
-    Exitbtn.innerText = "SIGNUP"
-    Exitbtn.addEventListener("click",() =>{
-      dispatch(navigate(Screens.SIGNUP));
-    } );
-    this.shadowRoot?.appendChild(Exitbtn);
+      
     this.shadowRoot?.appendChild(login);
         break;
+        case Screens.DASHBOARD:
+
+        const dashboard = this.ownerDocument.createElement("home-cont");   
+        const btn2 = this.ownerDocument.createElement("button")
+        btn2.className = "ExitBotton"
+        btn2.innerText = "RET"
+        btn2.addEventListener("click",() =>{
+          dispatch(navigate(Screens.EDITPROFILE));
+        } );
+        this.shadowRoot?.appendChild(btn2);this.shadowRoot?.appendChild(dashboard);
+      break; 
 
         case Screens.SIGNUP:
             const signup = this.ownerDocument.createElement("app-signup");
@@ -47,17 +52,7 @@ class AppContainer extends HTMLElement {
             this.shadowRoot?.appendChild(signup);
             break; 
 
-         case Screens.DASHBOARD:
-
-        const dashboard = this.ownerDocument.createElement("home-cont");   
-        const btn2 = this.ownerDocument.createElement("button")
-        btn2.className = "ExitBotton"
-        btn2.innerText = "RET"
-        btn2.addEventListener("click",() =>{
-          dispatch(navigate(Screens.EDITPROFILE));
-        } );
-        this.shadowRoot?.appendChild(btn2);this.shadowRoot?.appendChild(dashboard);
-      break; 
+       
 
       case Screens.EDITPROFILE:
         const editprofile = this.ownerDocument.createElement("edprof-cont");

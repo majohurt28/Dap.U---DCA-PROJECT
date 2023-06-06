@@ -42,6 +42,7 @@ export default class Addpost extends HTMLElement {
         const editPContainer = this.ownerDocument.createElement("section")
         editPContainer.className = 'editPContainer'
         Maincontainer.appendChild(editPContainer)
+        
         const Exitbtn = this.ownerDocument.createElement("h1")
     Exitbtn.className = "ExitBotton"
     Exitbtn.innerText = "X"

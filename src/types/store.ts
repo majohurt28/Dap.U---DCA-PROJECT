@@ -14,7 +14,8 @@ export enum Screens {
     LOGIN = "LOGIN",
     DASHBOARD = "DASHBOARD",
     SIGNUP = "SIGNUP",
-    EDITPROFILE = "EDITPROFILE"
+    EDITPROFILE = "EDITPROFILE",
+    PROFILE = "PROFILE",
 }
 
 

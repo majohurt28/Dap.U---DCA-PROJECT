@@ -107,4 +107,5 @@ export default class Signup extends HTMLElement {
     
   
   }
-}customElements.define("app-signup", Signup);
+}
+customElements.define("app-signup", Signup);

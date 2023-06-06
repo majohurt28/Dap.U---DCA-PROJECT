@@ -42,6 +42,54 @@ export default class editprofile extends HTMLElement {
           dispatch(navigate(Screens.EDITPROFILE));
         } );
         editPContainer.appendChild(Exitbtn);
+
+     
+        editPContainer.appendChild(Exitbtn);
+    
+        const dapu = this.ownerDocument.createElement("h1");
+        dapu.innerText = "dap.u"
+        editPContainer.appendChild(dapu);
+
+        const username = this.ownerDocument.createElement("input");
+        username.placeholder = "username";
+        username.className = "userInput"
+        username.type = "username";
+        username.addEventListener(
+          "change", (e: any) => (credentials.email = e.target.value)
+        );
+        editPContainer.appendChild(username);
+    
+    
+        const email = this.ownerDocument.createElement("input");
+        email.placeholder = "Email";
+        email.className = "userInput"
+        email.type = "email";
+        email.addEventListener(
+          "change", (e: any) => (credentials.email = e.target.value)
+        );
+        editPContainer.appendChild(email);
+    
+        const password = this.ownerDocument.createElement("input");
+        password.placeholder = "Password...";
+        password.className = "userInput"
+        password.type = "password";
+        password.addEventListener(
+          "change", (e: any) => (credentials.password = e.target.value)
+        );
+        editPContainer.appendChild(password);
+
+        const newpassword = this.ownerDocument.createElement("input");
+        newpassword.placeholder = "new Password...";
+        newpassword.className = "userInput"
+        newpassword.type = "password";
+        newpassword.addEventListener(
+          "change", (e: any) => (credentials.password = e.target.value)
+        );
+        editPContainer.appendChild(newpassword);
+    
+        Maincontainer.appendChild(editPContainer)
+        this.shadowRoot?.appendChild(Maincontainer);
+        this.shadowRoot?.appendChild(editPContainer);
     
 }
 }

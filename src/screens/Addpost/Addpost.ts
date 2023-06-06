@@ -56,6 +56,7 @@ export default class Addpost extends HTMLElement {
         editPContainer.appendChild(Comment)
 
         const comment = this.ownerDocument.createElement('input');
+        comment .className= "comminput"
         comment.addEventListener("change",(e: any) => {
             imputs.comment = e.target.value;
         });
@@ -74,8 +75,22 @@ export default class Addpost extends HTMLElement {
             if (file) Firebase.uploadFile(file);
         }); */
 
+
+        const iImg = this.ownerDocument.createElement("input");
+        iImg.placeholder = "Upload file"
+      iImg.type = "file";
+      iImg .className = "imginput"
+      iImg.addEventListener("change", (e: any) => {
+       imputs.img = e.target.value;
+        const file = iImg.files?.[0];
+        if (file) Firebase.uploadFile(file);
+      });
+      editPContainer.appendChild(iImg)
+
+
         const saveB = this.ownerDocument.createElement('button');
         saveB.textContent = "Post";
+        saveB .className = "postB"
         saveB.addEventListener("click", async () => {
             console.log(imputs);
             dispatch(await saveproduct(imputs));
@@ -89,14 +104,7 @@ export default class Addpost extends HTMLElement {
           if (file) Firebase.uploadFile(file);
         });  */
         
-      const iImg = this.ownerDocument.createElement("input");
-    iImg.type = "file";
-    iImg.addEventListener("change", (e: any) => {
-     imputs.img = e.target.value;
-      const file = iImg.files?.[0];
-      if (file) Firebase.uploadFile(file);
-    });
-    editPContainer.appendChild(iImg)
+     
       
         
         /* this.shadowRoot?.appendChild(img); */

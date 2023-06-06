@@ -114,8 +114,42 @@
 /*profile*/
 .Profile{
     position: absolute;
-    left: 30%;
-    background-color: rgb(151, 53, 53);
-    height:  500px;
-    width: 700px;
+    left: 300px;
+    margin-top: -250px;
+    background-color: rgb(0, 0, 0);
+    height:  1000px;
+    width: 900px;
+    box-shadow: 10px 10px 3px rgba(97, 97, 97, 0.316);
+}
+
+.infoProfile{
+    margin-top: 150px;  
+    margin-bottom: -50px;
+   border-bottom: 1px solid rgba(255, 255, 255);
+}
+
+.User{
+    font-weight: bolder;
+    font-size: xx-large;
+    color: white;
+    margin-left: 190px;
+}
+
+.upBotton{
+    font-size:xx-large;
+    font-weight: bolder;
+    color: white;
+    margin-left: 600px;
+    margin-top: 30px ;
+    margin-bottom: -27px;
+}
+
+.EditBotton{
+    margin-left: 650px;
+   background-color: white;
+   width: 170px;
+    margin-top: -400px ;
+    margin-bottom: 30px;
+    border-radius: 10px;
+
 }

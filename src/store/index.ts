@@ -20,7 +20,12 @@ onAuthStateChanged(auth, (user) => {
 const emptyState = {
   screen: Screens.DASHBOARD,
   user: "",
+<<<<<<< Updated upstream
   message:[]
+=======
+  message: [],
+
+>>>>>>> Stashed changes
 };
 
 export let appState = Storage.get<AppState>({

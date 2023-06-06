@@ -8,7 +8,7 @@ export type Observer = ({ render: () => void } & HTMLElement);
 export type AppState = {
     screen: Screens;
     user: string;  
-    message: Shapemessage[]
+    message: Shapemessage[];
 }
 
 export enum Screens {

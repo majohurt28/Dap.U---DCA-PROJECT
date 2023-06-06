@@ -48,10 +48,21 @@ class AppContainer extends HTMLElement {
             break; 
 
          case Screens.DASHBOARD:
+
         const dashboard = this.ownerDocument.createElement("home-cont");   
-        this.shadowRoot?.appendChild(dashboard);
+        const btn2 = this.ownerDocument.createElement("button")
+        btn2.className = "ExitBotton"
+        btn2.innerText = "RET"
+        btn2.addEventListener("click",() =>{
+          dispatch(navigate(Screens.EDITPROFILE));
+        } );
+        this.shadowRoot?.appendChild(btn2);this.shadowRoot?.appendChild(dashboard);
       break; 
 
+      case Screens.EDITPROFILE:
+        const editprofile = this.ownerDocument.createElement("edprof-cont");
+        this.shadowRoot?.appendChild(editprofile);
+        break; 
       default:
         break;
          

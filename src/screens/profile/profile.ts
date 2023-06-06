@@ -124,14 +124,16 @@ export default class profile extends HTMLElement {
     const content = this.ownerDocument.createElement("section")
     content.className = 'content'
     MainContainer.appendChild(content )
+    const container = this.ownerDocument.createElement("section");
+    container.className = "post-content"
+    infoProfile.appendChild(container)
 
    
 
 //POST//
 const postSec = await Firebase.getPost();
 postSec.forEach((p: Shapepost) => {
-      const container = this.ownerDocument.createElement("section");
-      container.className = "post-content"
+     
       const name = this.ownerDocument.createElement("h3");
       name.innerText = p.comment;
       container.appendChild(name);
@@ -141,8 +143,9 @@ postSec.forEach((p: Shapepost) => {
       imgSection.src = String(p.img);
       container.appendChild(imgSection);
       
-      this.shadowRoot?.appendChild(container);
+      
     });
+    
     this.shadowRoot?.appendChild(MainContainer );
     }
     }

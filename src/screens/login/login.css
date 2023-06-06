@@ -36,11 +36,7 @@ position: absolute;
    margin-top: 30px;
    margin-bottom: 30px;
    
-   display: flex;
-   flex-direction: row;
- margin-left: 105px;
- height: 30px;
- width: 200px;
+
 }
 
 .title{

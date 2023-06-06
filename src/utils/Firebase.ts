@@ -27,9 +27,11 @@ const firebaseConfig ={
   const storage = getStorage(app);
 
 const registerUser = async ({
+    
     email,
     password,
   }: {
+   
     email: string;
     password: string;
   }): Promise<boolean> => {

@@ -85,11 +85,12 @@ class AppContainer extends HTMLElement {
           this.shadowRoot?.appendChild(profile);
           break; 
 
-          case Screens.ADDPOST:
-          const addpost = this.ownerDocument.createElement("addpost-cont");
+        case Screens.FEED:
+          const feed = this.ownerDocument.createElement("app-feed");
   
-          this.shadowRoot?.appendChild(addpost);
+          this.shadowRoot?.appendChild(feed);
           break; 
+        
         
       default:
         break;

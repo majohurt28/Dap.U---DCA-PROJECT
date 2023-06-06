@@ -6,7 +6,7 @@ import { Screens } from "../../types/navigatio";
 import { addObserver, appState, dispatch } from "../../store/index";
 import Firebase from "../../utils/Firebase";
 
-const credentials = { email: "", password: "" };
+const credentials = {  email: "", password: "" };
 
 export default class Signup extends HTMLElement {
   constructor() {
@@ -20,10 +20,10 @@ export default class Signup extends HTMLElement {
   }
 
   async handlesignButton() {
-    const resp = await Firebase.registerUser(credentials);
-    console.log(resp);
-    if (resp) {
-      dispatch(navigate(Screens.LOGIN));
+    const user = await Firebase.registerUser(credentials);
+    console.log(user);
+    if (user) {
+      dispatch(navigate(Screens.DASHBOARD));
       sessionStorage.clear();
     };
     
@@ -57,11 +57,6 @@ export default class Signup extends HTMLElement {
     Newaccount.innerText = "Create an account"
     SignContainer.appendChild(Newaccount);
 
-    const username = this.ownerDocument.createElement("input");
-    username.placeholder = "Username";
-    username.className = "SignInput"
-    username.type = "username";
-    SignContainer.appendChild(username);
 
     const email = this.ownerDocument.createElement("input");
     email.placeholder = "Email";

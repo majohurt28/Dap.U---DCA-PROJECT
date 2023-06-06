@@ -1,4 +1,5 @@
 export interface Shapepost{
-    image: string;
-    description: string;
+    comment: string;
+    img: string;
+    
 }

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -23,6 +24,7 @@ const firebaseConfig ={
   const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
   const db = getFirestore(app);
+  const storage = getStorage(app);
 
 const registerUser = async ({
     email,
@@ -68,18 +70,38 @@ const registerUser = async ({
 
   const savepostinDB = async (shapepost: Shapepost) => {
     try {
-       await addDoc(collection(db, "products"), shapepost); 
+       await addDoc(collection(db, "Post"), shapepost); 
       } catch (e) {
-      console.error("Error adding document: ", e);
-  
+      console.error("Error adding post: ", e);
     }
-    
   };
+
+  const uploadFile = async (file: File) => {
+    const storageRef = ref(storage, file.name);
+    const res = await uploadBytes(storageRef, file);
+    console.log("file uploaded", res);
+  };
+  
+  const getPost = async (): Promise<Shapepost[]> => {
+    const resp: Shapepost[] = [];
+    const querySnapshot = await getDocs(collection(db, "Post"));
+    querySnapshot.forEach((doc) =>{
+      console.log(`${doc.id}=>${doc.data()}`);
+      resp.push({ ...doc.data(),
+      } as Shapepost);
+    });
+    return resp;
+  };
+
+
 
   export default {
    /*  addProduct,
     getProducts, */
     registerUser,
     loginUser,
+    savepostinDB,
+    uploadFile,
+    getPost,
   };
   

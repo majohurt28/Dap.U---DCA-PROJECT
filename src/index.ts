@@ -74,8 +74,21 @@ class AppContainer extends HTMLElement {
 
         case Screens.PROFILE:
           const profile = this.ownerDocument.createElement("app-profile");
+          const btn4 = this.ownerDocument.createElement("button")
+          btn4.className = "ExitBotton"
+          btn4.innerText = "RET"
+          btn4.addEventListener("click",() =>{
+            dispatch(navigate(Screens.ADDPOST));
+          } );
+          this.shadowRoot?.appendChild(btn4);
   
           this.shadowRoot?.appendChild(profile);
+          break; 
+
+          case Screens.ADDPOST:
+          const addpost = this.ownerDocument.createElement("addpost-cont");
+  
+          this.shadowRoot?.appendChild(addpost);
           break; 
         
       default:

@@ -1,4 +1,4 @@
-import { Actions, AppState, NavigationActions, messageAct } from "../types/store";
+import { Actions, AppState, NavigationActions, messageAct, SomeActions } from "../types/store";
 
 export const reducer = (actions: Actions, appState: AppState): 
     AppState => {
@@ -16,7 +16,12 @@ export const reducer = (actions: Actions, appState: AppState):
             return {
                 ...appState,
                 message: payload
-            }
+            };
+
+        case SomeActions.SAVE_PRODUCT:
+            appState.post = [...appState.post, payload];
+    
+            return appState;
 
        default:
        return appState;

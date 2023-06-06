@@ -4,5 +4,6 @@ export enum Screens {
     SIGNUP = "SIGNUP",
     EDITPROFILE = "EDITPROFILE",
 PROFILE = "PROFILE",
+ADDPOST = "ADDPOST",
   }
   

@@ -53,8 +53,11 @@ export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
  */
 
 import Shapemessages from '../services/apiMessage'
+import { Shapepost } from "../types/Shapeposts";
 
-import { NavigateAction, NavigationActions, Screens, messageAct, GetmessageAct  } from "../types/store";
+
+import { Actions, NavigateAction, NavigationActions, Screens, messageAct, GetmessageAct, SomeActions  } from "../types/store";
+import firebase from "../utils/Firebase";
 
 export const navigate = (screen: Screens): NavigateAction => {
   return {
@@ -78,3 +81,19 @@ export const setUserCredentials = (user: string) => {
         payload: message
     }
 };
+
+export const saveproduct = async (shapepost: Shapepost): Promise<Actions>  =>{
+    await firebase.savepostinDB(shapepost);
+    return{
+            action: SomeActions.SAVE_PRODUCT,
+            payload: shapepost,
+        };  
+    };
+
+export const getPosts = async (): Promise<Actions>  =>{
+    const posts = await firebase.getPost();
+        return{
+                action: SomeActions.GET_POST,
+                payload: posts,
+            };  
+        };

@@ -1,4 +1,5 @@
 import { Shapevideo} from "./Shapevideo"
+import { Shapepost } from "./Shapeposts";
 import { Shapemessage} from "./Shapemessage"
 /* import { Shapemusicsheet} from "./Shapemusicsheet"  */
 
@@ -9,6 +10,7 @@ export type AppState = {
     screen: Screens;
     user: string;  
     message: Shapemessage[];
+    post: Shapepost[]
 }
 
 export enum Screens {
@@ -17,6 +19,7 @@ export enum Screens {
     SIGNUP = "SIGNUP",
     EDITPROFILE = "EDITPROFILE",
     PROFILE = "PROFILE",
+    ADDPOST = "ADDPOST",
 }
 
 
@@ -28,6 +31,21 @@ export enum messageAct {
     "ADDmessage" = "ADDmessage",
     "GETmessage" =  "GETmessage",
 }
+
+export enum SomeActions {
+    "SAVE_PRODUCT" = "SAVE_PRODUCT",
+    "GET_POST" = "GET_POST", 
+  }
+  
+  export interface SaveproductAction {
+    action: SomeActions.SAVE_PRODUCT;
+    payload: Shapepost;
+  }
+
+  export interface GetpostAction {
+    action: SomeActions.GET_POST;
+    payload: Shapepost[];
+  }
 
 export interface NavigateAction {
     action: NavigationActions .NAVIGATE,
@@ -106,4 +124,4 @@ export interface GetmessageAct {
 } 
 
 export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ; */
-export type Actions = NavigateAction | GetmessageAct ;
+export type Actions = SaveproductAction | GetpostAction | NavigateAction | GetmessageAct;

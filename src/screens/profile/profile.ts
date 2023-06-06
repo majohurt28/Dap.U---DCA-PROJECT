@@ -1,27 +1,31 @@
-import { navigate } from "../../store/actions";
+import { getPosts, navigate } from "../../store/actions";
 import { Screens } from "../../types/navigatio";
 import  Upperbar  from '../../components/Upperbar/upperbar';
 import  sidebar  from '../../components/sidebar/sidebar'; 
 import Firebase from "../../utils/Firebase";
+import { Shapepost } from "../../types/Shapeposts";
 import { addObserver, appState, dispatch } from "../../store/index";
 import profilestyle from './profilestyle.css';
 
-
-
+const imputs: Shapepost = {
+  comment: "",
+  img: "",
+ 
+} 
 const credentials = { usermane: "", description: "", };
 
 export default class profile extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
-      addObserver(this);
+      
     }
   
-    connectedCallback() {
+    async connectedCallback() {
       this.render();
     }
 
-    render() {
+    async render() {
     
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = ``;
@@ -105,7 +109,7 @@ export default class profile extends HTMLElement {
     uptbtn .className = "upBotton"
     uptbtn.textContent = "✚"
     uptbtn .addEventListener("click",() =>{
-      dispatch(navigate(Screens.EDITPROFILE));
+      dispatch(navigate(Screens.ADDPOST));
     } );
     infoProfile.appendChild(uptbtn);
 
@@ -121,8 +125,25 @@ export default class profile extends HTMLElement {
     content.className = 'content'
     MainContainer.appendChild(content )
 
-    this.shadowRoot?.appendChild(MainContainer );
+   
 
+//POST//
+const postSec = await Firebase.getPost();
+postSec.forEach((p: Shapepost) => {
+      const container = this.ownerDocument.createElement("section");
+      container.className = "post-content"
+      const name = this.ownerDocument.createElement("h3");
+      name.innerText = p.comment;
+      container.appendChild(name);
+
+      const imgSection = this.ownerDocument.createElement("section");
+      imgSection.className = "sec-img"
+      imgSection.innerText = String(p.img);
+      container.appendChild(imgSection);
+      
+      this.shadowRoot?.appendChild(container);
+    });
+    this.shadowRoot?.appendChild(MainContainer );
     }
     }
 

@@ -237,16 +237,11 @@ Maincontainer.className = 'main-section'
           dispatch(navigate(Screens.SIGNUP));
         } );
 
-        const button3 = this.ownerDocument.createElement('h1');
-        button3.className= "button"
-        button3.innerText = "Profile";
-        button3.addEventListener("click",() =>{
-          dispatch(navigate(Screens.PROFILE));
-        } );
+      
         
         buttonSection.appendChild(button1);
         buttonSection.appendChild(button2);
-        buttonSection.appendChild(button3);
+        
         
         
         

@@ -6,6 +6,7 @@ import { reducer } from "./reducer";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth}   from "../utils/Firebase";
 import { navigate, setUserCredentials } from "./actions";
+import { message } from "../mocks/getMessage";
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -18,7 +19,8 @@ onAuthStateChanged(auth, (user) => {
 
 const emptyState = {
   screen: Screens.DASHBOARD,
-  user: ""
+  user: "",
+  message:[]
 };
 
 export let appState = Storage.get<AppState>({

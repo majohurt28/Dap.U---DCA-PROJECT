@@ -1,12 +1,12 @@
 /* import dashboardStyle from './dashboard.css';
 
-import Signbutton from "../../components/Signbutton/signbutton";
-import { getmessage, logIn } from "../../store/actions";
-import { getvideo } from "../../store/actions";
+import Signbutton from "../../components/Signbutton/signbutton"; */
+/* import { getmessage, logIn } from "../../store/actions"; */
+/* import { getvideo } from "../../store/actions"; */
 
-/* import LogIn from "../../components/log in/login"; */
-/* import Messagecard, { messageAtt } from "../../components/message/message"
-import Myvid, { videoAtt } from "../../components/vidss/vid"
+/*  import LogIn from "../../components/log in/login";  */
+/* /import Messagecard, { messageAtt } from "../../components/message/message"; */
+/* import Myvid, { videoAtt } from "../../components/vidss/vid"
 import { addObserver, appState, dispatch } from "../../store/index";
 import  sidebar  from '../../components/sidebar/sidebar'; 
 
@@ -15,10 +15,10 @@ import  Upperbar  from '../../components/Upperbar/upperbar';
 
 
 
-class dashboardContainer extends HTMLElement {
-  messageContainer: Messagecard[] = [];
-  videoContainer: Myvid[] = [];
-
+export default class home extends HTMLElement { */
+  /* messageContainer: Messagecard[] = [];
+  videoContainer: Myvid[] = []; */
+/* 
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -26,6 +26,11 @@ class dashboardContainer extends HTMLElement {
   }
 
   async connectedCallback() {
+  this.render()
+  }
+ */
+  
+   /* {
     if (appState.message.length === 0) {
       const actionMs = await getmessage();
       dispatch(actionMs);
@@ -35,9 +40,9 @@ class dashboardContainer extends HTMLElement {
     } else {
       this.render();
     }
-  }
+  }  */
 
-  render() {
+  /* render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = ``;
     
@@ -56,10 +61,10 @@ class dashboardContainer extends HTMLElement {
     this.shadowRoot?.appendChild(button);
 
     const side = this.ownerDocument.createElement('side-bar') as sidebar;
-    this.shadowRoot?.appendChild(side); 
+    this.shadowRoot?.appendChild(side);  */
     
 
-    appState.video.forEach((data) => {
+    /* appState.video.forEach((data) => {
       const vidCard = this.ownerDocument.createElement("my-vid") as Myvid;
       vidCard.setAttribute(videoAtt.heart, data.heart);
       vidCard.setAttribute(videoAtt.like, data.likes);
@@ -69,17 +74,17 @@ class dashboardContainer extends HTMLElement {
       vidCard.setAttribute(videoAtt.profname, data.profname);
       vidCard.setAttribute(videoAtt.videsc, data.videsc);
       this.videoContainer.push(vidCard);
-    });
+    }); */
 
-    const vidCards = this.ownerDocument.createElement("section");
+    /* const vidCards = this.ownerDocument.createElement("section");
     vidCards.className = 'vforcontainer'
     this.videoContainer.forEach((vidCard) => {
       vidCards.appendChild(vidCard);
-    })
+    }) */
 
-    this.shadowRoot?.appendChild(vidCards);
+  /*   this.shadowRoot?.appendChild(vidCards);
  */
-
+ 
     //*Message
 
    /*  const messageSection = this.ownerDocument.createElement("section-message");
@@ -129,7 +134,8 @@ class dashboardContainer extends HTMLElement {
 
 
 
-customElements.define("my-dashboard", dashboardContainer); */
+
+customElements.define('home-cont', home) */
 
 
  import  Upperbar  from '../../components/Upperbar/upperbar';
@@ -150,19 +156,11 @@ export default class home extends HTMLElement {
   }
 
   async connectedCallback() {
-    if (appState.message.length === 0) {
-      const actionMs = await readmessage();
-      dispatch(actionMs);
-    } if (appState.video.length === 0) {
-      const actionVd = await readvideo();
-      dispatch(actionVd);
-    } else {
-      this.render();
-    }
+  this.render()
   }
 
 
-  render() {if (this.shadowRoot) {
+  render()  {if (this.shadowRoot) {
     this.shadowRoot.innerHTML = ``;
   
     const css = this.ownerDocument.createElement("style");
@@ -170,38 +168,82 @@ export default class home extends HTMLElement {
     this.shadowRoot?.appendChild(css);
 }
 
-      if(this.shadowRoot)this.shadowRoot.innerHTML='';
+/* const Maincontainer = this.ownerDocument.createElement('section');
+Maincontainer.className = 'main-section' */
+//BARRA
 
-     
-
-      const h3 = this.ownerDocument.createElement("h3");
-      h3.className="Uppercontainer"
-      h3.innerText= "helloooo"
-
-      this.shadowRoot?.appendChild(h3);
-
-      const Upper = this.ownerDocument.createElement('my-upperbar') as Upperbar;
+     const Upper = this.ownerDocument.createElement('my-upperbar') as Upperbar;
       Upper.className = 'upper-section'
-      this.shadowRoot?.appendChild(Upper);
-
-      const sinbtn = this.ownerDocument.createElement("button")
-        sinbtn .className = "LoginBotton"
-        sinbtn .innerText = "Login"
-        sinbtn .addEventListener("click",() =>{
-          dispatch(navigate(Screens.LOGIN));
-        } );
-
-        this.shadowRoot?.appendChild(sinbtn);
     
 
+      const logo = this.ownerDocument.createElement('img');
+      logo .className = "Dapicon"
+      logo .src = "../../../img/logo ama.png";
+      Upper.appendChild(logo);
+
+      const Dap = this.ownerDocument.createElement('h1');
+      Dap .className = "DapName"
+      Dap .innerText = "Dap.U"
+      Upper.appendChild(Dap);
+
+      const sinbtn = this.ownerDocument.createElement("button")
+      sinbtn .className = "SignBotton"
+      sinbtn .innerText = "Sign Up"
+      sinbtn .addEventListener("click",() =>{
+        dispatch(navigate(Screens.SIGNUP));
+      } );
+      Upper.appendChild(sinbtn);
       
+      const loginbtn = this.ownerDocument.createElement("button")
+      loginbtn .className = "LoginBotton"
+      loginbtn .innerText = "Login"
+      loginbtn .addEventListener("click",() =>{
+          dispatch(navigate(Screens.LOGIN));
+        } );
+        Upper.appendChild(loginbtn);
 
-     
+        const side = this.ownerDocument.createElement('side-bar') as sidebar;
+    this.shadowRoot?.appendChild(side); 
 
+  //BOTONES
+    const buttonSection = this.ownerDocument.createElement('section');
+       buttonSection.className= "button-section"
+        const button1 = this.ownerDocument.createElement('h1');
+        /* button1.setAttribute("id","button1") */
+        button1.className= "button"
+        button1.innerText = "Music Sheets";
+        button1.addEventListener("click",() =>{
+          dispatch(navigate(Screens.SIGNUP));
+        } );
+        buttonSection.appendChild(button1);
+
+        const button2 = this.ownerDocument.createElement('h1');
+        button2.className= "button"
+        button2.innerText = "Home";
+        button2.addEventListener("click",() =>{
+          dispatch(navigate(Screens.SIGNUP));
+        } );
+
+        const button3 = this.ownerDocument.createElement('h1');
+        button3.className= "button"
+        button3.innerText = "Profile";
+        button3.addEventListener("click",() =>{
+          dispatch(navigate(Screens.PROFILE));
+        } );
+        
+        buttonSection.appendChild(button1);
+        buttonSection.appendChild(button2);
+        buttonSection.appendChild(button3);
+        
+        this.shadowRoot?.appendChild(Upper);
+        this.shadowRoot?.appendChild(buttonSection);
+          
+    //*MESSAGE**/
   }}
 
 customElements.define('home-cont', home)
 
 
 
-  
+
+

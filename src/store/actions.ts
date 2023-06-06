@@ -69,9 +69,10 @@ export const setUserCredentials = (user: string) => {
     };
   };
 
-  export const readmessage = async (): Promise<GetmessageAct > => {
+  /* export const readmessage = async (): Promise<GetmessageAct > => {
     const message = await Shapemessages.get();
     return {
         action: messageAct.GETmessage,
         payload: message
     }
+ */

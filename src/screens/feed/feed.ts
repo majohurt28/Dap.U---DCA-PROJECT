@@ -5,7 +5,7 @@ import  sidebar  from '../../components/sidebar/sidebar';
 import Firebase from "../../utils/Firebase";
 import { addObserver, appState, dispatch } from "../../store/index";
 import feedstyle from './feedstyle.css';
-
+import { Shapepost } from "../../types/Shapeposts";
 
 
 
@@ -17,11 +17,11 @@ export default class feed extends HTMLElement {
       addObserver(this);
     }
   
-    connectedCallback() {
+    async connectedCallback() {
       this.render();
     }
 
-    render() {
+    async render() {
     
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = ``;
@@ -99,8 +99,27 @@ export default class feed extends HTMLElement {
 
     const content = this.ownerDocument.createElement("section")
     content.className = 'content'
+    const postSec = await Firebase.getPost();
+    postSec.forEach((p: Shapepost) => {
+         
+          const name = this.ownerDocument.createElement("h3");
+          name.innerText = p.comment;
+          container.appendChild(name);
+    
+          const imgSection = this.ownerDocument.createElement("img");
+          imgSection.className = "sec-img"
+          imgSection.src = String(p.img);
+          container.appendChild(imgSection);
+          
+          
+        });
+    const container = this.ownerDocument.createElement("section");
+    container.className = "post-content"
     MainContainer.appendChild(content )
 
+
+
+    
     this.shadowRoot?.appendChild(MainContainer );
 
     }

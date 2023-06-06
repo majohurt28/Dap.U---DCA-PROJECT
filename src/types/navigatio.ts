@@ -5,5 +5,6 @@ export enum Screens {
     EDITPROFILE = "EDITPROFILE",
     PROFILE = "PROFILE",
     FEED = "FEED",
+    ADDPOST = "ADDPOST"
   }
   

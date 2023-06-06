@@ -67,9 +67,9 @@ export default class profile extends HTMLElement {
       const button1 = this.ownerDocument.createElement('h1');
       /* button1.setAttribute("id","button1") */
       button1.className= "button"
-      button1.innerText = "Music Sheets";
+      button1.innerText = "Feed";
       button1.addEventListener("click",() =>{
-        dispatch(navigate(Screens.SIGNUP));
+        dispatch(navigate(Screens.FEED));
       } );
       buttonSection.appendChild(button1);
 
@@ -77,7 +77,7 @@ export default class profile extends HTMLElement {
       button2.className= "button"
       button2.innerText = "Home";
       button2.addEventListener("click",() =>{
-        dispatch(navigate(Screens.SIGNUP));
+        dispatch(navigate(Screens.DASHBOARD));
       } );
 
       const button3 = this.ownerDocument.createElement('h1');

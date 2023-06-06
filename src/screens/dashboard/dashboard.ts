@@ -141,27 +141,36 @@ customElements.define('home-cont', home) */
  import  Upperbar  from '../../components/Upperbar/upperbar';
  import  sidebar  from '../../components/sidebar/sidebar'; 
  import { addObserver, appState, dispatch } from "../../store/index";
+ import { getmessage } from "../../store/actions";
  import { navigate } from "../../store/actions";
  import { Screens } from "../../types/navigatio";
  import dashboardStyle from './dashboard.css';
+ import Messagecard, { messageAtt } from "../../components/message/message";
 
  
 
 
 export default class home extends HTMLElement {
+  messageContainer: Messagecard[] = [];
+
   constructor(){
       super();
       this.attachShadow({mode: "open"})
       addObserver(this);
   }
 
-  async connectedCallback() {
-  this.render()
+  async connectedCallback() 
+  {
+    if (appState.message.length === 0) {
+      const actionMs = await getmessage();
+      dispatch(actionMs);
+    } else {
+      this.render();
+    }
   }
 
 
-  render()  {if (this.shadowRoot) {
-    this.shadowRoot.innerHTML = ``;
+  render()  {if (this.shadowRoot) {this.shadowRoot.innerHTML = ``;
   
     const css = this.ownerDocument.createElement("style");
     css.innerHTML = dashboardStyle;
@@ -245,6 +254,26 @@ Maincontainer.className = 'main-section'
         
           
     //*MESSAGE**/
+    const messageSection = this.ownerDocument.createElement("section-message");
+    messageSection.className = 'messageSection'
+
+    appState.message.forEach((data) => {
+      const messageCard = this.ownerDocument.createElement("message-contentcard") as Messagecard;
+      messageCard.setAttribute(messageAtt.profile, data.profile);
+      messageCard.setAttribute(messageAtt.comment, data.comment);
+      messageCard.setAttribute(messageAtt.name, data.name);
+      messageCard.setAttribute(messageAtt.days, data.days);
+      this.messageContainer.push(messageCard);
+    });
+
+
+    const messageCards = this.ownerDocument.createElement("section");
+    messageCards.className = 'Mcontent'
+    this.messageContainer.forEach((messageCard) => {
+      messageCards.appendChild(messageCard);
+    })
+    messageSection.appendChild(messageCards)
+    this.shadowRoot?.appendChild(messageCards);
   }}
 
 customElements.define('home-cont', home)

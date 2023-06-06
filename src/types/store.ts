@@ -1,6 +1,6 @@
-/* import { Shapevideo} from "./Shapevideo"
+import { Shapevideo} from "./Shapevideo"
 import { Shapemessage} from "./Shapemessage"
-import { Shapemusicsheet} from "./Shapemusicsheet" */
+/* import { Shapemusicsheet} from "./Shapemusicsheet"  */
 
 export type Observer = ({ render: () => void } & HTMLElement);
 
@@ -8,6 +8,7 @@ export type Observer = ({ render: () => void } & HTMLElement);
 export type AppState = {
     screen: Screens;
     user: string;  
+    message: Shapemessage[]
 }
 
 export enum Screens {
@@ -23,11 +24,20 @@ export enum NavigationActions {
     "NAVIGATE" = "NAVIGATE",
 }
 
+export enum messageAct {
+    "ADDmessage" = "ADDmessage",
+    "GETmessage" =  "GETmessage",
+}
+
 export interface NavigateAction {
     action: NavigationActions .NAVIGATE,
     payload: Screens;
 }
 
+export interface GetmessageAct {
+    action: messageAct.GETmessage,
+    payload: Shapemessage[]
+} 
 
 /* export enum AuthActions {
     "LOGIN" = "LOGIN",
@@ -93,7 +103,7 @@ export interface AddmessageAct
 export interface GetmessageAct {
     action: messageAct.GETmessage,
     payload: Shapemessage[]
-} */ 
+} 
 
-/* export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ; */
-export type Actions = NavigateAction;
+export type Actions = LogInAction | LogOutAction | AddsheetAct | GETsheetAct | AddvideoAct | GetvideoAct | AddmessageAct | GetmessageAct ; */
+export type Actions = NavigateAction | GetmessageAct ;

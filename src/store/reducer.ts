@@ -1,4 +1,4 @@
-import { Actions, AppState, NavigationActions } from "../types/store";
+import { Actions, AppState, NavigationActions, messageAct } from "../types/store";
 
 export const reducer = (actions: Actions, appState: AppState): 
     AppState => {
@@ -11,6 +11,13 @@ export const reducer = (actions: Actions, appState: AppState):
         screen: payload,
 
        };
+
+       case messageAct.GETmessage:
+            return {
+                ...appState,
+                message: payload
+            }
+
        default:
        return appState;
        

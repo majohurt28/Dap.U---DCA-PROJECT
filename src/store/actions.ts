@@ -52,7 +52,9 @@ export const logIn = ({payload}: Pick<LogInAction, "payload">): LogInAction => {
 }
  */
 
-import { NavigateAction, NavigationActions, Screens  } from "../types/store";
+import Shapemessages from '../services/apiMessage'
+
+import { NavigateAction, NavigationActions, Screens, messageAct, GetmessageAct  } from "../types/store";
 
 export const navigate = (screen: Screens): NavigateAction => {
   return {
@@ -69,10 +71,10 @@ export const setUserCredentials = (user: string) => {
     };
   };
 
-  /* export const readmessage = async (): Promise<GetmessageAct > => {
+   export const getmessage = async (): Promise<GetmessageAct > => {
     const message = await Shapemessages.get();
     return {
         action: messageAct.GETmessage,
         payload: message
     }
- */
+};

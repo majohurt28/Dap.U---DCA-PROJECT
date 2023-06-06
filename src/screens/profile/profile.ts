@@ -31,13 +31,70 @@ export default class profile extends HTMLElement {
             this.shadowRoot?.appendChild(css);
         }
 
-        
+    
     const MainContainer = this.ownerDocument.createElement("section")
     MainContainer.className = 'MainContainer'
 
+    //BARRA
+
+    const Upper = this.ownerDocument.createElement('my-upperbar') as Upperbar;
+    Upper.className = 'upper-section'
+    MainContainer.appendChild(Upper);
+  
+
+    const logo = this.ownerDocument.createElement('img');
+    logo .className = "Dapicon"
+    logo .src = "../../../img/logo ama.png";
+    Upper.appendChild(logo);
+
+    const Dap = this.ownerDocument.createElement('h1');
+    Dap .className = "DapName"
+    Dap .innerText = "Dap.U"
+    Upper.appendChild(Dap);
+
+   
+
+//BOTONES
+  const buttonSection = this.ownerDocument.createElement('section');
+     buttonSection.className= "button-section"
+     MainContainer.appendChild(buttonSection);
+
+
+      const button1 = this.ownerDocument.createElement('h1');
+      /* button1.setAttribute("id","button1") */
+      button1.className= "button"
+      button1.innerText = "Music Sheets";
+      button1.addEventListener("click",() =>{
+        dispatch(navigate(Screens.SIGNUP));
+      } );
+      buttonSection.appendChild(button1);
+
+      const button2 = this.ownerDocument.createElement('h1');
+      button2.className= "button"
+      button2.innerText = "Home";
+      button2.addEventListener("click",() =>{
+        dispatch(navigate(Screens.SIGNUP));
+      } );
+
+      const button3 = this.ownerDocument.createElement('h1');
+      button3.className= "button"
+      button3.innerText = "Profile";
+      button3.addEventListener("click",() =>{
+        dispatch(navigate(Screens.PROFILE));
+      } );
+      
+      buttonSection.appendChild(button1);
+      buttonSection.appendChild(button2);
+      buttonSection.appendChild(button3);
+      
+      //Profile
+      const Profile = this.ownerDocument.createElement("section")
+      Profile.className = 'Profile'
+      MainContainer.appendChild(Profile );
+
     const infoProfile = this.ownerDocument.createElement("section")
     infoProfile.className = 'infoProfile'
-    MainContainer.appendChild(infoProfile );
+    Profile.appendChild(infoProfile );
 
     const logAccount = this.ownerDocument.createElement('label');
     logAccount.textContent = "Already have an account?"

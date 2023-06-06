@@ -168,12 +168,13 @@ export default class home extends HTMLElement {
     this.shadowRoot?.appendChild(css);
 }
 
-/* const Maincontainer = this.ownerDocument.createElement('section');
-Maincontainer.className = 'main-section' */
+const Maincontainer = this.ownerDocument.createElement('section');
+Maincontainer.className = 'main-section' 
 //BARRA
 
      const Upper = this.ownerDocument.createElement('my-upperbar') as Upperbar;
       Upper.className = 'upper-section'
+      Maincontainer.appendChild(Upper);
     
 
       const logo = this.ownerDocument.createElement('img');
@@ -208,6 +209,9 @@ Maincontainer.className = 'main-section' */
   //BOTONES
     const buttonSection = this.ownerDocument.createElement('section');
        buttonSection.className= "button-section"
+       Maincontainer.appendChild(buttonSection);
+
+
         const button1 = this.ownerDocument.createElement('h1');
         /* button1.setAttribute("id","button1") */
         button1.className= "button"
@@ -235,8 +239,10 @@ Maincontainer.className = 'main-section' */
         buttonSection.appendChild(button2);
         buttonSection.appendChild(button3);
         
-        this.shadowRoot?.appendChild(Upper);
-        this.shadowRoot?.appendChild(buttonSection);
+        
+        
+        this.shadowRoot?.appendChild(Maincontainer );
+        
           
     //*MESSAGE**/
   }}
